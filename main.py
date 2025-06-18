@@ -45,5 +45,12 @@ def main():
         pygame.display.flip()
         dt = time_clock.tick(60) / 1000
 
+        for shot in shots.copy():
+            for asteroid in asteroids.copy():
+                if shot.collision_check(asteroid):
+                    shot.kill()
+                    asteroid.kill()
+                    break
+
 if __name__ == "__main__":
     main()
