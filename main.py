@@ -49,7 +49,7 @@ def main():
             for asteroid in asteroids.copy():
                 if shot.collision_check(asteroid):
                     shot.kill()
-                    asteroid.kill()
+                    asteroid.split()
                     break
 
 if __name__ == "__main__":
