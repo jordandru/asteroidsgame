@@ -9,12 +9,19 @@ class Asteroid(CircleShape):
             self.add(*Asteroid.containers)
 
     def draw(self, screen):
-        # sub-classes must override
         pygame.draw.circle(screen, "white", self.position, self.radius, 2)
 
     def update(self, dt):
-        # sub-classes must override
         self.position = self.position + (self.velocity * dt)
+
+        if self.position.x > SCREEN_WIDTH:
+            self.position.x = 0
+        if self.position.x < 0:
+            self.position.x = SCREEN_WIDTH
+        if self.position.y > SCREEN_HEIGHT:
+            self.position.y = 0
+        if self.position.y < 0:
+            self.position.y = SCREEN_HEIGHT
 
     def split(self):
         self.kill()
