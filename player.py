@@ -32,14 +32,14 @@ class Player(CircleShape):
         if keys[pygame.K_s]:
             self.move(-dt)
         
-        if self.position.x > SCREEN_WIDTH:
-            self.position.x = 0
-        if self.position.x < 0:
-            self.position.x = SCREEN_WIDTH
-        if self.position.y > SCREEN_HEIGHT:
-            self.position.y = 0
-        if self.position.y < 0:
-            self.position.y = SCREEN_HEIGHT
+        if self.position.x - self.radius > SCREEN_WIDTH:
+            self.position.x = 0 - self.radius
+        if self.position.x + self.radius < 0:
+            self.position.x = SCREEN_WIDTH + self.radius
+        if self.position.y - self.radius > SCREEN_HEIGHT:
+            self.position.y = 0 - self.radius
+        if self.position.y + self.radius < 0:
+            self.position.y = SCREEN_HEIGHT + self.radius
         
         if keys[pygame.K_SPACE]:
             self.shoot()
